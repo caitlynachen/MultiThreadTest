@@ -1,0 +1,22 @@
+package jrJava.multiThreadTest;
+
+public class User {
+
+	public static void main(String[] args) {
+		
+		System.out.println("In main() method: Thread ID = " +Thread.currentThread().getId());
+				
+		
+		Calculator calculator = new Calculator();
+		
+		AnotherUser anotherUser = new AnotherUser();
+		anotherUser.setCalculator(calculator);
+		
+		Thread t2 = new Thread(anotherUser);
+		t2.start();
+		//Thread t3 = new Thread(anotherUser);
+		//t3.start();
+		
+		calculator.doCalculation();
+	}
+}
