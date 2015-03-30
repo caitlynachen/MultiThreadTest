@@ -1,0 +1,38 @@
+package jrJava.multiThreadTest;
+
+import resources.Timer;
+
+public class Calculator {
+
+	private Timer timer = new Timer();
+	private int sum = 0;
+	
+	/*public static void main(String[] args){
+		int sum=0;
+		
+		//sum=0;
+		
+		for(int i=0; i<=2015; i++){
+			sum=sum+i;
+			//System.out.println("Thread ID = " +Thread.currentThread().getId());
+			System.out.println(sum);
+			//timer.pause(300);
+		}
+	}
+*/
+	
+	public void doCalculation(){
+	
+		int sum = 0;
+		
+		synchronized(this){
+			sum = 0;
+			for(int i=1; i<=10; i++){
+				sum=sum+i;
+				System.out.println("Thread ID = " +Thread.currentThread().getId());
+				System.out.println(sum);
+				timer.pause(300);
+		}
+	}
+}
+}
