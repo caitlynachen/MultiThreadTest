@@ -1,0 +1,19 @@
+# MultiThreadTest
+package jrJava.multiThreadTest;
+
+public class AnotherUser implements Runnable{
+	
+
+		private Calculator calculator;                 
+		
+		public void setCalculator(Calculator _calculator){
+			calculator = _calculator;
+		}
+		
+		public void run(){
+			System.out.println("In doIt() method: Thread ID = " +Thread.currentThread().getId());
+			calculator.doCalculation();
+		}
+		
+	}
+
